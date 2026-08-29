@@ -1,0 +1,3 @@
+display_name: Academic Figure Prompt
+short_description: English conference-style image-generation prompts for academic diagrams. Does not call image APIs.
+default_prompt: Read the paper I provide and write a detailed English prompt for an official image tool to draw a conference-style academic figure.

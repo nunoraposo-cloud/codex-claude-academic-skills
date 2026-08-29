@@ -7,7 +7,7 @@ description: English-first research paper writing, revision, polishing, section 
 
 ## Scope
 
-Use this skill for research writing and revision when the output is prose, LaTeX, Markdown, or manuscript text. Use `office-academic-skill` instead when the main deliverable is Word/PPT. Use `scientific-toolkit-skill` when the task is primarily MATLAB, Python, plotting, statistics, simulation, or literature search.
+Use this skill for research writing and revision when the output is prose, LaTeX, Markdown, or manuscript text. Use `office-academic-skill` instead when the main deliverable is Word/PPT. Use `scientific-toolkit-skill` when the task is primarily MATLAB, Python, plotting, statistics, simulation, or literature search. Use `academic-figure-prompt` when the user wants English prompts for AI image tools to draw conceptual academic diagrams (not data plots).
 
 ## Writing Principles
 

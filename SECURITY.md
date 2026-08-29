@@ -23,6 +23,8 @@ Office files, launch browsers, and call literature APIs.
 4. **Treat untrusted PDFs/DOCX/PPTX as untrusted input.** Unpack and parse only files the user provided; do not open random downloads.
 5. **Do not overwrite originals.** Write versioned copies of Office files, data, and figures.
 6. **Playwright / Chromium** (`html2pptx.js`) launches a browser for HTML→PPTX. Use only when generating slides from HTML.
+7. **Academic figure prompts** (`academic-figure-prompt`) write English image-generation prompts only. Do not call image APIs from the skill. Do not run [LigphiDonk/academic-figure-generator](https://github.com/LigphiDonk/academic-figure-generator) or send prompts to `api.keepgo.icu` / `tpkcur.xyz`. The user pastes the prompt into an official tool they already use (Gemini, ChatGPT Images, Midjourney). Do not install third-party skills with `npx skills add`.
+8. **Unpublished manuscripts still leave the machine** when pasted into Cursor or an official image tool (the model provider sees the text). Ask before reading confidential files.
 
 ## What was assessed (summary)
 

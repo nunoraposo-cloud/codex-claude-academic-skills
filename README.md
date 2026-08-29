@@ -1,6 +1,6 @@
 # Academic Skills for Claude Code, Codex & Cursor
 
-> Three academic skill packs covering paper writing, Office document generation, and research computing.
+> Four academic skill packs covering paper writing, Office document generation, research computing, and AI figure-prompt writing.
 > Skills load in **Claude Code**, **Codex**, and **Cursor**.
 
 This repository is a private **English-first** localization and security-hardened derivative of
@@ -16,12 +16,14 @@ See [NOTICE](NOTICE) and [SECURITY.md](SECURITY.md).
 | [`research-writing-skill`](#1-research-writing-skill--paper-writing) | Draft, revise, and polish paper sections | Abstract, introduction, methods, experiments, rebuttal |
 | [`office-academic-skill`](#2-office-academic-skill--academic-office-documents) | Academic Word/PPT generation and editing | Literature reading reports, group-meeting PPT, defense PPT |
 | [`scientific-toolkit-skill`](#3-scientific-toolkit-skill--research-computing) | Research computing and data analysis | MATLAB/Python simulation, statistics, ML, publication figures |
+| [`academic-figure-prompt`](#4-academic-figure-prompt--ai-diagram-prompts) | English prompts for AI image tools | Conference-style architecture / pipeline diagrams |
 
-The three skills are complementary and can be used together:
+The skills are complementary and can be used together:
 
 ```
 Paper-writing workflow:
-  scientific-toolkit-skill (analysis, figures)
+  scientific-toolkit-skill (analysis, data figures)
+  → academic-figure-prompt (optional conceptual diagram prompts)
   → research-writing-skill (manuscript prose)
   → office-academic-skill (defense PPT)
 
@@ -137,6 +139,26 @@ Research computing skill oriented toward **optoelectronic information science an
 
 ---
 
+## 4. academic-figure-prompt — AI diagram prompts
+
+Writes **detailed English prompts** for official image tools (Gemini, ChatGPT Images, Midjourney, DALL-E). It does not generate pixels and does not call any image API.
+
+Two styles (ask if unspecified):
+
+- **Classic** — white boxes, thin coloured borders, Okabe–Ito and other journal palettes
+- **Pastel / modern ML** — white canvas, floating white panels, rounded type, pastel tokens
+
+### Safety
+
+- Prompt text only. No bash, no network, no LigphiDonk web app.
+- You paste the prompt into an official image tool you already use. Never `api.keepgo.icu`.
+- Conceptual diagrams only. Real data plots stay in `scientific-toolkit-skill`.
+- See [SECURITY.md](SECURITY.md).
+
+English localization of the SKILL.md files from [LigphiDonk/academic-figure-generator](https://github.com/LigphiDonk/academic-figure-generator) (MIT). That project's FastAPI app is not included.
+
+---
+
 ## Install
 
 Each skill uses the same layout (`SKILL.md` + `agents/` + `references/`).
@@ -149,13 +171,14 @@ Global install:
 cp -r research-writing-skill ~/.cursor/skills/
 cp -r office-academic-skill ~/.cursor/skills/
 cp -r scientific-toolkit-skill ~/.cursor/skills/
+cp -r academic-figure-prompt ~/.cursor/skills/
 ```
 
 Project-only install (this repo):
 
 ```bash
 mkdir -p .cursor/skills
-cp -r research-writing-skill office-academic-skill scientific-toolkit-skill .cursor/skills/
+cp -r research-writing-skill office-academic-skill scientific-toolkit-skill academic-figure-prompt .cursor/skills/
 ```
 
 ### Claude Code
@@ -164,6 +187,7 @@ cp -r research-writing-skill office-academic-skill scientific-toolkit-skill .cur
 cp -r research-writing-skill ~/.claude/skills/
 cp -r office-academic-skill ~/.claude/skills/
 cp -r scientific-toolkit-skill ~/.claude/skills/
+cp -r academic-figure-prompt ~/.claude/skills/
 ```
 
 ### Codex
@@ -172,6 +196,7 @@ cp -r scientific-toolkit-skill ~/.claude/skills/
 cp -r research-writing-skill ~/.codex/skills/
 cp -r office-academic-skill ~/.codex/skills/
 cp -r scientific-toolkit-skill ~/.codex/skills/
+cp -r academic-figure-prompt ~/.codex/skills/
 ```
 
 ---
@@ -209,6 +234,7 @@ Design of the upstream project drew on:
 | [tfriedel/claude-office-skills](https://github.com/tfriedel/claude-office-skills) | Office document skills (docx/pptx/pdf/xlsx) |
 | [Gabberflast/academic-pptx-skill](https://github.com/Gabberflast/academic-pptx-skill) | Academic PPT conventions |
 | [SNL-UCSB/paper-writing-skill](https://github.com/SNL-UCSB/paper-writing-skill) | Paper-writing craft principles |
+| [LigphiDonk/academic-figure-generator](https://github.com/LigphiDonk/academic-figure-generator) | Conference-style AI figure-prompt templates (English localization in `academic-figure-prompt`) |
 
 ---
 

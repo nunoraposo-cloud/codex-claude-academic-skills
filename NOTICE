@@ -13,6 +13,10 @@ This fork adds:
   - English-first skill instructions and documentation
   - Security hardening (Scholar proxy removal, LibreOffice LD_PRELOAD opt-in,
     Zip Slip checks, SECURITY.md)
+  - academic-figure-prompt: English localization of the SKILL.md files from
+    https://github.com/LigphiDonk/academic-figure-generator (MIT, Copyright
+    LigphiDonk). Bash tool grants removed. That project's FastAPI app and
+    default image relay (api.keepgo.icu) are not included.
 
 Bundled third-party reference materials under
 scientific-toolkit-skill/references/scientific-skills/ and
