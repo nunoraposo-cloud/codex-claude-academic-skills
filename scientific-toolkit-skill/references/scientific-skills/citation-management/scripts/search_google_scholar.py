@@ -15,34 +15,23 @@ import random
 from typing import List, Dict, Optional
 
 try:
-    from scholarly import scholarly, ProxyGenerator
+    from scholarly import scholarly
     SCHOLARLY_AVAILABLE = True
 except ImportError:
     SCHOLARLY_AVAILABLE = False
     print('Warning: scholarly library not installed. Install with: pip install scholarly', file=sys.stderr)
 
 class GoogleScholarSearcher:
-    """Search Google Scholar using scholarly library."""
+    """Search Google Scholar using scholarly library.
+
+    Prefer PubMed, OpenAlex, or Crossref for literature lookup when possible.
+    Free-proxy / MITM routing is intentionally disabled in this fork.
+    """
     
-    def __init__(self, use_proxy: bool = False):
-        """
-        Initialize searcher.
-        
-        Args:
-            use_proxy: Use free proxy (helps avoid rate limiting)
-        """
+    def __init__(self):
+        """Initialize searcher (direct connection only)."""
         if not SCHOLARLY_AVAILABLE:
             raise ImportError('scholarly library required. Install with: pip install scholarly')
-        
-        # Setup proxy if requested
-        if use_proxy:
-            try:
-                pg = ProxyGenerator()
-                pg.FreeProxies()
-                scholarly.use_proxy(pg)
-                print('Using free proxy', file=sys.stderr)
-            except Exception as e:
-                print(f'Warning: Could not setup proxy: {e}', file=sys.stderr)
     
     def search(self, query: str, max_results: int = 50,
                year_start: Optional[int] = None, year_end: Optional[int] = None,
@@ -215,12 +204,6 @@ def main():
     )
     
     parser.add_argument(
-        '--use-proxy',
-        action='store_true',
-        help='Use free proxy to avoid rate limiting'
-    )
-    
-    parser.add_argument(
         '-o', '--output',
         help='Output file (default: stdout)'
     )
@@ -242,7 +225,7 @@ def main():
         sys.exit(1)
     
     # Search
-    searcher = GoogleScholarSearcher(use_proxy=args.use_proxy)
+    searcher = GoogleScholarSearcher()
     results = searcher.search(
         args.query,
         max_results=args.limit,

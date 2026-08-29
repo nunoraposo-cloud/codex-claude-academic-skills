@@ -7,6 +7,17 @@ import defusedxml.minidom
 import zipfile
 from pathlib import Path
 
+
+def safe_extract(zf: zipfile.ZipFile, dest: Path) -> None:
+    """Extract zip members, rejecting paths that escape dest (Zip Slip)."""
+    dest = dest.resolve()
+    for member in zf.infolist():
+        target = (dest / member.filename).resolve()
+        if not target.is_relative_to(dest):
+            raise ValueError(f"Blocked unsafe zip path: {member.filename!r}")
+    zf.extractall(dest)
+
+
 # Get command line arguments
 assert len(sys.argv) == 3, "Usage: python unpack.py <office_file> <output_dir>"
 input_file, output_dir = sys.argv[1], sys.argv[2]
@@ -14,7 +25,8 @@ input_file, output_dir = sys.argv[1], sys.argv[2]
 # Extract and format
 output_path = Path(output_dir)
 output_path.mkdir(parents=True, exist_ok=True)
-zipfile.ZipFile(input_file).extractall(output_path)
+with zipfile.ZipFile(input_file) as zf:
+    safe_extract(zf, output_path)
 
 # Pretty print all XML files
 xml_files = list(output_path.rglob("*.xml")) + list(output_path.rglob("*.rels"))

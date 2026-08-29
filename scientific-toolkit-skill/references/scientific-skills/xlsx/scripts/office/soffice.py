@@ -1,7 +1,12 @@
 """
 Helper for running LibreOffice (soffice) in environments where AF_UNIX
-sockets may be blocked (e.g., sandboxed VMs).  Detects the restriction
-at runtime and applies an LD_PRELOAD shim if needed.
+sockets may be blocked (e.g., sandboxed VMs).
+
+SECURITY WARNING (this fork): This module can compile a C shared library at
+runtime and inject it via LD_PRELOAD. That path is DISABLED by default.
+Do not use this helper unless LibreOffice conversion is required and you have
+explicitly set ALLOW_SOFFICE_LD_PRELOAD=1. Prefer skipping soffice validation
+when LibreOffice is absent (see pack.py).
 
 Usage:
     from office.soffice import run_soffice, get_soffice_env
@@ -25,7 +30,8 @@ def get_soffice_env() -> dict:
     env = os.environ.copy()
     env["SAL_USE_VCLPLUGIN"] = "svp"
 
-    if _needs_shim():
+    # LD_PRELOAD socket shim is opt-in only in this hardened fork.
+    if os.environ.get("ALLOW_SOFFICE_LD_PRELOAD") == "1" and _needs_shim():
         shim = _ensure_shim()
         env["LD_PRELOAD"] = str(shim)
 

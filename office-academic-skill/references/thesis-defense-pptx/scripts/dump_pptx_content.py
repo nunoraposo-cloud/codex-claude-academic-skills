@@ -26,7 +26,7 @@ from pathlib import Path
 from pptx import Presentation
 from pptx.util import Emu
 
-# Windows 默认 stdout 是 cp936/gbk,中文/特殊字符易触发 UnicodeEncodeError。
+# Windows stdout often defaults to cp936/gbk; Chinese/special chars can raise UnicodeEncodeError.
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")

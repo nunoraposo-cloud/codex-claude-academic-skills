@@ -1,4 +1,3 @@
 display_name: Office Academic
-short_description: Chinese academic Word reports and PPT decks with evidence labels and Office QA.
-default_prompt: Create or polish a Chinese academic Word report or PPTX from papers, thesis files, data, figures, or templates.
-
+short_description: English academic Word reports and PPT decks with evidence labels and Office QA.
+default_prompt: Create or polish an English academic Word report or PPTX from papers, thesis files, data, figures, or templates.

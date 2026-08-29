@@ -7,7 +7,7 @@ from pathlib import Path
 
 from pptx import Presentation
 
-# Windows 默认 stdout 是 cp936/gbk，遇到 −/✓/Δ 等 Unicode 字符会 UnicodeEncodeError。
+# Windows stdout often defaults to cp936/gbk; Unicode chars like −/✓/Δ can raise UnicodeEncodeError.
 # 这里强制切到 UTF-8，errors=replace 兜底以避免脚本因终端编码崩溃。
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")

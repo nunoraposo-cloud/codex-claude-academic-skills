@@ -1,6 +1,6 @@
 ---
 name: research-writing-skill
-description: Chinese-first research paper writing, revision, polishing, section drafting, rebuttal, peer-review response, thesis prose improvement, and manuscript argument planning. Use when the user asks to write or revise论文正文, abstracts, introductions, methods, results, discussion, conclusions, related work, responses to reviewers, LaTeX/Overleaf text, or academic prose. Preserve formulas, English paper titles, terms, citations, and measured results.
+description: English-first research paper writing, revision, polishing, section drafting, rebuttal, peer-review response, thesis prose improvement, and manuscript argument planning. Use when the user asks to write or revise manuscript text, abstracts, introductions, methods, results, discussion, conclusions, related work, responses to reviewers, LaTeX/Overleaf text, or academic prose. Preserve formulas, paper titles, terms, citations, and measured results.
 ---
 
 # Research Writing Skill
@@ -11,10 +11,10 @@ Use this skill for research writing and revision when the output is prose, LaTeX
 
 ## Writing Principles
 
-- Default to Chinese academic expression unless the user requests English.
-- Preserve English titles, formulas, variables, methods, software names, citations, and reference entries.
+- Default to English academic expression unless the user requests another language.
+- Preserve titles, formulas, variables, methods, software names, citations, and reference entries.
 - Do not invent data, DOI, journal details, experiment settings, results, or author claims.
-- Separate `原文/已有数据`, `用户确认内容`, `根据上下文推断`, and `建议性扩展`.
+- Separate `source / existing data`, `user-confirmed content`, `inferred from context`, and `suggested extension`.
 - Prefer verifiable technical statements over generic claims.
 - When revising, preserve the user's intended meaning and terminology unless a change is clearly needed.
 
@@ -32,7 +32,7 @@ For a new section or paper draft:
 For revision or polishing:
 
 - Keep claims tied to evidence.
-- Replace vague words such as "显著", "先进", "有效", "鲁棒" with measured conditions, comparison baselines, or remove them.
+- Replace vague words such as "significant", "advanced", "effective", "robust" with measured conditions, comparison baselines, or remove them.
 - Check whether each paragraph advances the section's purpose.
 - Keep formulas with variable definitions, units, assumptions, and applicable conditions.
 - For experimental sections, state dataset/sample, hardware/software, parameters, metrics, baselines, and uncertainty when available.
@@ -59,7 +59,7 @@ The folder `references/paper-writing/` contains external writing checklists and 
 - `figure_templates/` for figure planning.
 - `author_profile/` for editorial heuristics.
 
-These references come from an external systems/networking-oriented repository. Treat them as optional craft guidance, not binding rules, and adapt them to光电信息科学与工程, optics, optoelectronics, sensing, communication, signal processing, and MATLAB simulation work.
+These references come from an external systems/networking-oriented repository. Treat them as optional craft guidance, not binding rules, and adapt them to optoelectronic information science and engineering, optics, optoelectronics, sensing, communication, signal processing, and MATLAB simulation work.
 
 ## Final Checks
 
@@ -69,4 +69,3 @@ Before delivery, state:
 - Which source material was used.
 - Which claims still need user-provided data or citation support.
 - Any uncertainty about terminology, parameters, or references.
-

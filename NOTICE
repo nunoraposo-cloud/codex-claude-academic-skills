@@ -1,0 +1,20 @@
+NOTICE
+======
+
+This repository is a private derivative of:
+
+  https://github.com/zLanqing/codex-claude-academic-skills
+
+Original work is Copyright (c) 2026 [zLanqing], licensed under the MIT License
+(see LICENSE).
+
+This fork adds:
+
+  - English-first skill instructions and documentation
+  - Security hardening (Scholar proxy removal, LibreOffice LD_PRELOAD opt-in,
+    Zip Slip checks, SECURITY.md)
+
+Bundled third-party reference materials under
+scientific-toolkit-skill/references/scientific-skills/ and
+research-writing-skill/references/paper-writing/ retain their original
+licenses and attribution where provided.

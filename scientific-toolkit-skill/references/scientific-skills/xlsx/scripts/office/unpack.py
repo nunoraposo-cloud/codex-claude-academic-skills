@@ -31,6 +31,16 @@ SMART_QUOTE_REPLACEMENTS = {
 }
 
 
+def safe_extract(zf: zipfile.ZipFile, dest: Path) -> None:
+    """Extract zip members, rejecting paths that escape dest (Zip Slip)."""
+    dest = dest.resolve()
+    for member in zf.infolist():
+        target = (dest / member.filename).resolve()
+        if not target.is_relative_to(dest):
+            raise ValueError(f"Blocked unsafe zip path: {member.filename!r}")
+    zf.extractall(dest)
+
+
 def unpack(
     input_file: str,
     output_directory: str,
@@ -51,7 +61,7 @@ def unpack(
         output_path.mkdir(parents=True, exist_ok=True)
 
         with zipfile.ZipFile(input_path, "r") as zf:
-            zf.extractall(output_path)
+            safe_extract(zf, output_path)
 
         xml_files = list(output_path.rglob("*.xml")) + list(output_path.rglob("*.rels"))
         for xml_file in xml_files:

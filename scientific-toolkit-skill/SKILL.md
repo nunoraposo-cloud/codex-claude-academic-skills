@@ -7,7 +7,7 @@ description: Research computing toolkit for optoelectronic information science a
 
 ## Scope
 
-Use this skill for科研计算 and software-assisted research:
+Use this skill for research computing and software-assisted research:
 
 - MATLAB/Octave scripts, debugging, refactoring, signal/image processing, FFT, filtering, matrix computation, simulation, and figure export.
 - Python scientific workflows with NumPy, SciPy, pandas, matplotlib, seaborn, scikit-learn, statsmodels, SymPy, and related tools.
@@ -18,11 +18,11 @@ Use `research-writing-skill` for manuscript prose. Use `office-academic-skill` f
 
 ## Domain Defaults
 
-The user's field is光电信息科学与工程. Prefer examples and checks relevant to:
+Default examples target optoelectronic information science and engineering. Prefer examples and checks relevant to:
 
 - Optics, optoelectronics, optical communication, optical sensing, fiber sensing, BOTDR/BOTDA, BGS, SPM, dispersion, noise, and deconvolution.
 - Signal processing, image processing, spectroscopy, detector data, sensor time series, calibration, and uncertainty.
-- MATLAB simulation and reproducible figure generation for论文/答辩.
+- MATLAB simulation and reproducible figure generation for papers and defenses.
 
 Do not fabricate physical parameters, material constants, software menu operations, experimental results, or paper conclusions. When uncertain, ask for the source file or mark the assumption.
 
@@ -64,7 +64,7 @@ Load only the relevant bundled reference:
 - Spreadsheet/PDF utilities: `xlsx`, `pdf`.
 - Literature/citation support: `paper-lookup`, `citation-management`, `literature-review`.
 
-Some bundled references mention optional installs such as `uv pip install ...` or optional API keys for higher rate limits. Do not install packages, use cloud APIs, or send user data to external services unless the current task requires it and the user agrees.
+Some bundled references mention optional installs such as `uv pip install ...` or optional API keys for higher rate limits. Do not install packages, use cloud APIs, or send user data to external services unless the current task requires it and the user agrees. Prefer PubMed, OpenAlex, and Crossref over Google Scholar scraping. See `SECURITY.md` at the repository root.
 
 ## Safety Rules
 
@@ -72,6 +72,7 @@ Some bundled references mention optional installs such as `uv pip install ...` o
 - Do not overwrite original data, code, Word/PPT, or figures. Write versioned outputs.
 - Do not delete or recursively clean user files without explicit confirmation.
 - For external lookups, prefer open APIs and official documentation; clearly distinguish live lookup results from local inference.
+- Do not enable LibreOffice `LD_PRELOAD` shims (`ALLOW_SOFFICE_LD_PRELOAD`) unless the user explicitly requires that path.
 
 ## Verification
 
@@ -86,4 +87,3 @@ For research analysis:
 - State software versions when known.
 - List input files and commands.
 - Mark assumptions and uncertain parameters.
-
